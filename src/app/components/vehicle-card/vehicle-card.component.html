@@ -1,0 +1,59 @@
+<div class="vehicle-card">
+  <div class="card-header">
+    <div>
+      <h3>{{ vehicle.model }}</h3>
+      <p class="registration">{{ vehicle.immatriculation }}</p>
+    </div>
+  </div>
+
+  <div class="card-divider"></div>
+
+  <div class="vehicle-info">
+    <div class="info-row">
+      <span class="info-label">État du véhicule</span>
+      <span class="status" [attr.data-status]="vehicle.status">
+        {{ vehicle.status }}
+      </span>
+    </div>
+
+    <div class="info-row">
+      <span class="info-label">Dernier entretien</span>
+      <span class="info-value">{{ vehicle.lastServiceDate }}</span>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <span class="vehicle-id">Véhicule #{{ vehicle.id_vehicule }}</span>
+  </div>
+
+  @if (user.role === "COLLAB") {
+    <button type="button"   class="breakdown-button" (click)="SignalerUnePanne()">
+      Signaler une panne
+    </button>
+  }
+
+  @if (afficherformulaire) {
+    <div class="breakdown-form">
+      <h3>Signaler une panne</h3>
+
+      <form (ngSubmit)="submitForm()">
+        <label for="description">Description de la panne :</label>
+        <textarea
+          id="description"
+          name="description"
+          [(ngModel)]="description"
+          required
+        >
+        </textarea>
+
+        <label for="urgency">Niveau d'urgence :</label>
+        <select id="urgency" name="urgency" [(ngModel)]="urgency">
+          <option value="LOW">Faible</option>
+          <option value="HIGH">Élevée</option>
+        </select>
+
+        <button type="submit" >Envoyer la demande</button>
+      </form>
+    </div>
+  }
+</div>

@@ -1,0 +1,282 @@
+.vehicle-card {
+  position: relative;
+  background: linear-gradient(145deg, #ffffff, #f8fbff);
+  border: 1px solid #e0eaf5;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(22, 65, 110, 0.06);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.vehicle-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #174a78, #5b9bd5);
+}
+
+.vehicle-card:hover {
+  box-shadow: 0 15px 35px rgba(22, 65, 110, 0.13);
+  border-color: #bdd5ec;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h3 {
+  color: #173e65;
+  font-size: 21px;
+  font-weight: 650;
+  margin: 0 0 7px;
+}
+
+.registration {
+  color: #8297ad;
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.card-divider {
+  height: 1px;
+  background: #e8eff7;
+  margin: 22px 0;
+}
+
+.vehicle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.info-label {
+  color: #8093a8;
+  font-size: 13px;
+}
+
+.info-value {
+  color: #34536f;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.status::before {
+  content: "●";
+  margin-right: 7px;
+}
+
+.status[data-status="AVAILABLE"] {
+  color: #23856a;
+}
+
+.status[data-status="IN_SERVICE"] {
+  color: #3978bb;
+}
+
+.status[data-status="MAINTENANCE"] {
+  color: #c17a32;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e8eff7;
+  margin-top: 23px;
+  padding-top: 15px;
+  color: #9aabbc;
+  font-size: 11px;
+}
+
+.vehicle-id {
+  color: #5d83a8;
+}
+
+
+/* ========================= */
+/* Bouton Signaler une panne */
+/* ========================= */
+
+.breakdown-button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 11px 15px;
+
+  background: #dc2626;
+  color: white;
+
+  border: none;
+  border-radius: 7px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.breakdown-button:hover {
+  background: #b91c1c;
+}
+
+
+/* ========================= */
+/* Formulaire de panne       */
+/* ========================= */
+
+.breakdown-form {
+  position: fixed;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(15, 23, 42, 0.55);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+/* Fenêtre du formulaire */
+
+.breakdown-form form {
+  width: 500px;
+  max-width: 95%;
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 14px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+
+  box-sizing: border-box;
+}
+
+
+/* Titre */
+
+.breakdown-form h3 {
+  margin: 0 0 25px;
+
+  color: #163b63;
+  font-size: 22px;
+  text-align: center;
+}
+
+
+/* Labels */
+
+.breakdown-form label {
+  display: block;
+
+  margin: 15px 0 7px;
+
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* Textarea */
+
+.breakdown-form textarea {
+  width: 100%;
+  min-height: 120px;
+
+  padding: 12px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  resize: vertical;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  box-sizing: border-box;
+  outline: none;
+}
+
+.breakdown-form textarea:focus {
+  border-color: #3b82c4;
+  box-shadow: 0 0 0 3px rgba(59, 130, 196, 0.1);
+}
+
+
+/* Select */
+
+.breakdown-form select {
+  width: 100%;
+
+  padding: 12px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  background: white;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+.breakdown-form select:focus {
+  border-color: #3b82c4;
+}
+
+
+/* Bouton Envoyer */
+
+.breakdown-form button[type="submit"] {
+  width: 100%;
+
+  margin-top: 25px;
+
+  padding: 12px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #163b63;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.breakdown-form button[type="submit"]:hover {
+  background: #0f2d4d;
+}

@@ -1,0 +1,38 @@
+<h2>Gestion des demandes de maintenance</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Véhicule</th>
+      <th>Description</th>
+      <th>Urgence</th>
+      <th>Statut</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (m of maintenanceRequests; track m.id) {
+      <tr>
+        <td>{{ m.id }}</td>
+        <td>{{ m.id_vehicule }}</td>
+        <td>{{ m.description }}</td>
+        <td>{{ m.urgency }}</td>
+        <td>{{ m.status }}</td>
+        <td>
+          @if (m.status === "PENDING") {
+            <button (click)="approveRequest(m)">Approuver</button>
+            <button (click)="rejectRequest(m)">Refuser</button>
+          } @else {
+            <span>Aucune action disponible</span>
+          }
+        </td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="6">Aucune demande de maintenance.</td>
+      </tr>
+    }
+  </tbody>
+</table>

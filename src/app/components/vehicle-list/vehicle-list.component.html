@@ -1,0 +1,16 @@
+<h2>Liste des véhicules</h2>
+
+<input type="text" placeholder="Rechercher une vehicule par model , immatriculation..etc" [(ngModel)]="searchText">
+
+<app-vehicle-stats
+  [TotalVehicles]="TotalVehicles"
+  [availableVehicles]="availableVehicles"
+  [inServiceVehicles]="inServiceVehicles"
+  [maintenanceVehicles]="maintenanceVehicles">
+</app-vehicle-stats>
+
+<div class="vehicles-container">
+  @for (vehicle of getFilteredVehicles(); track vehicle.id_vehicule) {
+    <app-vehicle-card [vehicle]="vehicle"></app-vehicle-card>
+  }
+</div>
